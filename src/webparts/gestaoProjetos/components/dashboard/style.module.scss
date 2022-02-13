@@ -1,6 +1,11 @@
 .container {
     padding: 10px;
     background-color: #F3F5F8;
+    .title {
+        width: 100%;
+        font-size: 19px;
+        text-align: center;
+    }
     .deck {
         display: flex;
         justify-content: space-around;

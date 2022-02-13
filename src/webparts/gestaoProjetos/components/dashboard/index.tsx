@@ -42,7 +42,9 @@ export default function Dashboard({ props }) {
 
     return (
         <div className={style.container}>
-            <h1>{props.title}</h1>
+            <div className={style.title}>
+                <h1>{props.title == null ? 'Management Dashboard' : props.title}</h1>
+            </div>
             <div className={style.deck}>
                 {
                     projetos &&
