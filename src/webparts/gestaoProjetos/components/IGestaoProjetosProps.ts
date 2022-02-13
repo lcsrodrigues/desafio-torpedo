@@ -1,3 +1,5 @@
 export interface IGestaoProjetosProps {
-  description: string;
+  title: string;
+  active:string;
+  relativeUrl:string;
 }

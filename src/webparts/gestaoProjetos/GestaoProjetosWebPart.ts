@@ -3,7 +3,8 @@ import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
 import {
   IPropertyPaneConfiguration,
-  PropertyPaneTextField
+  PropertyPaneTextField,
+  PropertyPaneDropdown
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 
@@ -12,7 +13,9 @@ import GestaoProjetos from './components/GestaoProjetos';
 import { IGestaoProjetosProps } from './components/IGestaoProjetosProps';
 
 export interface IGestaoProjetosWebPartProps {
-  description: string;
+  title: string;
+  active:string;
+  relativeUrl:string;
 }
 
 export default class GestaoProjetosWebPart extends BaseClientSideWebPart<IGestaoProjetosWebPartProps> {
@@ -21,7 +24,9 @@ export default class GestaoProjetosWebPart extends BaseClientSideWebPart<IGestao
     const element: React.ReactElement<IGestaoProjetosProps> = React.createElement(
       GestaoProjetos,
       {
-        description: this.properties.description
+        title: this.properties.title,
+        active:this.properties.active,
+        relativeUrl:this.context.pageContext.web.serverRelativeUrl
       }
     );
 
@@ -40,15 +45,29 @@ export default class GestaoProjetosWebPart extends BaseClientSideWebPart<IGestao
     return {
       pages: [
         {
-          header: {
-            description: strings.PropertyPaneDescription
-          },
           groups: [
             {
-              groupName: strings.BasicGroupName,
+              groupName: "Configuration",
               groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
+                PropertyPaneTextField('title', {
+                  label: "Title"
+                }),
+                PropertyPaneDropdown('active', {
+                  label: "Filter",
+                  options:[
+                    {
+                      key:'all',
+                      text:'Todos os itens'
+                    },
+                    {
+                      key:'true',
+                      text:'Ativos'
+                    },
+                    {
+                      key:'false',
+                      text:'Inativos'
+                    }
+                ]
                 })
               ]
             }

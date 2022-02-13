@@ -1,0 +1,9 @@
+.container {
+    padding: 10px;
+    background-color: #F3F5F8;
+    .deck {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+}

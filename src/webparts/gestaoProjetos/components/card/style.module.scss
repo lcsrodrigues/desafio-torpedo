@@ -1,0 +1,47 @@
+.card {
+    padding: 10px;
+    margin: 10px;
+    width: 250px;
+    box-shadow: 1px 1px 1px #cccccc;
+    border-radius: 3px;
+    background-color: #fff;
+    .title {
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 16px;
+        color: #7c7c7c;
+    }
+    .chart {
+        width: 100%;
+        background-color: yellow;
+        border-bottom: 1px solid #a0a0a0;
+    }
+    .revenues {
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .estimate {
+            width: calc(50% - 20px);
+            .title {
+                color: #cccccc;
+                font-size: 10px;
+            }
+            .value {
+                color: green;
+                font-size: 22px;
+            }
+        }
+        .revenue {
+            width: calc(50% - 20px);
+            .title {
+                color: #cccccc;
+                font-size: 10px;
+            }
+            .value {
+                color: red;
+                font-size: 22px;
+            }
+        }
+    }
+}
