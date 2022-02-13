@@ -19,11 +19,11 @@ export default function Dashboard({ props }) {
             };
 
             if (props.active == 'true') {
-                url = "/_api/web/lists/getByTitle('Projetos')/items?$filter=status eq 1";
+                url = "/_api/web/lists/getByTitle('Projetos')/items?$filter=ativo eq 1";
             };
 
             if (props.active == 'false') {
-                url = "/_api/web/lists/getByTitle('Projetos')/items?$filter=status eq 0";
+                url = "/_api/web/lists/getByTitle('Projetos')/items?$filter=ativo eq 0";
             };
 
             axios
